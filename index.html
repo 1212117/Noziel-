@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noziel's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Welcome to My New Portfolio</h1>
+            <h2>Discover My Artistic Journey</h2>
+            <p>Exploring the fusion of art and technology</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#video">Video</a></li>
+            <li><a href="https://www.instagram.com/ethereal_vision_6/" target="_blank" rel="noopener noreferrer">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="intro">
+            <h2>Bienvenido a Mi Portafolio</h2>
+            <p>Explora mi viaje como artista digital. Aquí encontrarás una selección de mis mejores trabajos, que muestran mi evolución y creatividad en el mundo del arte digital.</p>
+        </section>
+
+        <div class="slider-container">
+            <div class="slider-content">
+                <div class="slider-item">
+                    <img src="https://c4.wallpaperflare.com/wallpaper/786/385/235/arte-casa-molino-oleo-wallpaper-preview.jpg" alt="Pintura en Casa Molino">
+                </div>
+                <div class="slider-item">
+                    <img src="https://c4.wallpaperflare.com/wallpaper/552/543/676/arte-mar-nubes-pintura-wallpaper-preview.jpg" alt="Arte del Mar y Nubes">
+                </div>
+                <div class="slider-item">
+                    <img src="https://c4.wallpaperflare.com/wallpaper/940/16/53/arte-las-meninas-pintura-wallpaper-preview.jpg" alt="Las Meninas">
+                </div>
+                <div class="slider-item">
+                    <img src="https://w0.peakpx.com/wallpaper/1020/221/HD-wallpaper-le-aste-piata-piazza-art-varza-girl-painting-gaetano-chierici-pictura.jpg" alt="Niña en Piazza">
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+
+        <section id="video">
+            <h2>Mi Video de Introducción</h2>
+            <p>En este video, te muestro un poco sobre quien me inspira todos los dias a seguir diseñando</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/ehIm7sCUAVg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Soy un artista digital en constante evolución, apasionado por el arte y la tecnología. Mi objetivo es fusionar estas dos disciplinas para crear piezas únicas que hablen por sí mismas. A lo largo de los años, he experimentado con diferentes estilos y técnicas, siempre buscando innovar y mejorar mis habilidades.</p>
+            <p>Mi viaje en el mundo del arte comenzó desde muy joven, y con el tiempo, la tecnología se ha convertido en mi aliada para explorar nuevas formas de expresión. Este portafolio es un reflejo de mi dedicación, creatividad y la pasión que pongo en cada una de mis obras.</p>
+            <p>Gracias por visitar mi sitio, espero que disfrutes de mi trabajo tanto como yo disfruto creándolo.</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17340.5610862793!2d-104.6109135788897!3d23.98150990530242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bb833da45df2b%3A0x2392fefbf317535!2sUniversidad%20Tecnol%C3%B3gica%20de%20Durango!5e0!3m2!1ses-419!2smx!4v1723156694014!5m2!1ses-419!2smx" style="border:0; width: 100%; height: 450px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Noziel's Portfolio. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slider-item');
+        const totalSlides = slides.length;
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
+            updateSlider();
+        });
+
+        document.querySelector('.next').addEventListener('click', () => {
+            currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
+            updateSlider();
+        });
+
+        function updateSlider() {
+            const sliderWidth = document.querySelector('.slider-container').clientWidth;
+            document.querySelector('.slider-content').style.transform = `translateX(-${currentIndex * sliderWidth}px)`;
+        }
+
+        window.addEventListener('resize', updateSlider);
+        updateSlider(); // Initialize the slider position
+    </script>
+</body>
+</html>
